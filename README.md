@@ -19,7 +19,7 @@ Self-hosted WebDAV server to synchronize RetroArch saves and states across multi
 
 ## Structure
 
-\`\`\`
+```
 /opt/webdav/
 ├── docker-compose.yml
 ├── data/
@@ -27,7 +27,7 @@ Self-hosted WebDAV server to synchronize RetroArch saves and states across multi
 │       ├── saves/
 │       └── states/
 └── config/
-\`\`\`
+```
 
 ## Requirements
 
@@ -47,6 +47,16 @@ See [docs/setup.md](docs/setup.md) for full installation and configuration guide
 | Apple TV / iOS | RetroArch Cloud Sync (built-in) | [docs/retroarch-appletv.md](docs/retroarch-appletv.md) |
 | Android | FolderSync | [docs/android-foldersync.md](docs/android-foldersync.md) |
 
+## Sync Flow
+
+```
+Apple TV (plays)
+  → RetroArch Cloud Sync (automatic)
+    → WebDAV VPS (your server)
+      → FolderSync (manual or scheduled)
+        → RetroArch Android (continues the session)
+```
+
 ## License
 
-GNU
+MIT

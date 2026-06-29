@@ -1,0 +1,14 @@
+services:
+  webdav:
+    image: bytemark/webdav
+    restart: always
+    env_file:
+      - .env
+    environment:
+      AUTH_TYPE: Digest
+      USERNAME: ${WEBDAV_USER}
+      PASSWORD: ${WEBDAV_PASSWORD}
+    volumes:
+      - ./data:/var/lib/dav/data
+    ports:
+      - "127.0.0.1:8088:80"
